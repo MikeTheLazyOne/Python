@@ -23,7 +23,6 @@ class Snake:
 
     def start_body(self, size):
         for i in range(size):
-            print(i)
             self.new_body()
             self.snake_list[i].setx(-20*i)
         self.head = self.snake_list[0]
@@ -33,7 +32,6 @@ class Snake:
             seg_prev = self.snake_list[i-1]
             seg =self.snake_list[i]
             prev_pos = seg_prev.pos()
-            print(prev_pos)
             seg.setpos(prev_pos)
         self.snake_list[0].fd(MOVECONSTAT)
     def Up_Heading(self):
