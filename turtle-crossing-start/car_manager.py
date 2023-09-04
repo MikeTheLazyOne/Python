@@ -55,7 +55,10 @@ class CarManager():
     def colision(self, turtle):
         for cars in self.list_of_cars:
             distance = cars.distance(turtle)
-            if distance < 30:
+            if distance < 40:
                 return True
+                exit()
             else:
                 return False
+    def level_up(self):
+        self.number_of_cars +=2 

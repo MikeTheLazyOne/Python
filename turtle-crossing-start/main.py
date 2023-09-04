@@ -10,7 +10,7 @@ screen.tracer(0)
 
 player = Player()
 cars = CarManager()
-
+score = Scoreboard()
 screen.listen()
 screen.onkey(key="Up", fun=player.move)
 
@@ -21,9 +21,17 @@ while game_is_on:
     cars.move()
     screen.update()
     # car colision logic
-    if cars.colision(player) == True:
-        print("GAME OVER")
-    
-
+    for car in cars.list_of_cars:
+        distance = car.distance(player)
+        if distance <30:
+            player.set_start_pos()
+            score.game_over()
+            
     # car finish logic
+    xpos, ypos = player.pos()
+    if ypos >= 300:
+        score.update()
+        player.set_start_pos()
+        cars.level_up()
+
 screen.exitonclick()
