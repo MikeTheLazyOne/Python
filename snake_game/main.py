@@ -39,8 +39,12 @@ while(game_status == True):
        snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
         print("you hit the wall")
         print("game over")
-        score.game_over()
-        game_status = False 
+
+        score.reset()
+        snake.reset()
+        # score.game_over()
+        # game_status = False 
+
     # # Dectecting colisions with tail
     # for seg in snake.snake_list:
     #     if snake.head.distance(seg) < 5:
@@ -52,8 +56,10 @@ while(game_status == True):
     for seg in snake.snake_list[1:]:
         if snake.head.distance(seg) < 5:
             
-            score.game_over()
-            game_status = False
+            score.reset()
+            snake.reset()
+            # score.game_over()
+            # game_status = False
             print("you ate your tail")
 
 

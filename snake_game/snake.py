@@ -56,6 +56,14 @@ class Snake:
             self.head.setheading(0)
         else:
             print("Can't make this move")
+    def reset(self):
+        
+        for seg in self.snake_list:
+            seg.goto(1000,1000)
+        self.snake_list.clear()
+        
+        self.start_body(3)
+        self.head = self.snake_list[0]
 
 
     
